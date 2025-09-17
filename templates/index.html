@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+  <h2 class="mb-4">📋 Lista de usuarios</h2>
+  {% if users %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>👤 Usuario</th>
+          <th>📧 Email</th>
+          <th>🎂 Edad</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for username, email, age in users %}
+          <tr>
+            <td>{{ username }}</td>
+            <td>{{ email }}</td>
+            <td>{{ age }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="alert alert-info">ℹ️ No hay usuarios registrados aún.</div>
+  {% endif %}
+{% endblock %}
